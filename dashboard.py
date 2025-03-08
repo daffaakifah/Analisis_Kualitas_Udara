@@ -84,7 +84,7 @@ def main():
     # Kategorisasi CO
     st.header("Kategorisasi Konsentrasi CO")
     main_data['Kategori_CO'] = main_data['CO'].apply(lambda x: "Aman" if x < 70 else ("Tinggi" if 70 <= x < 150 else "Sangat Tinggi"))
-    st.write(data_clean[['station', 'CO', 'Kategori_CO']].head())
+    st.write(main_data[['station', 'CO', 'Kategori_CO']].head())
     
     # Ringkasan Kategori CO per Stasiun
     st.subheader("Ringkasan Kategori CO per Stasiun")
