@@ -26,6 +26,7 @@ def main():
     
     # Visualisasi Tren Polutan
     st.header("Tren Rata-rata Tahunan Polutan")
+    main_data['date'] = pd.to_datetime(main_data[['year', 'month', 'day', 'hour']])
     annual_pollutant_means = main_data.groupby(main_data['date'].dt.year)[['PM2.5', 'PM10', 'SO2', 'NO2', 'CO', 'O3']].mean()
 
     fig, ax = plt.subplots(figsize=(14, 8))
