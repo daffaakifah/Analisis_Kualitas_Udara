@@ -87,7 +87,7 @@ def main():
     st.write(main_data[['station', 'CO', 'Kategori_CO']].head())
     
     # Ringkasan Kategori CO per Stasiun
-    st.subheader("Ringkasan Kategori CO per Stasiun")
+    st.subheader("Ringkasan Kategori Kejadian Kadar CO per Stasiun")
     ringkasan_kategori_co = main_data.groupby('station')['Kategori_CO'].value_counts().unstack(fill_value=0)
     st.write(ringkasan_kategori_co)
     
