@@ -19,10 +19,11 @@ visualization_option = st.sidebar.selectbox(
         "Tren Polutan per Tahun",
         "Distribusi Polutan per Stasiun",
         "Korelasi Antar Polutan",
+        "Total dan Rata-rata Polutan",
         "Analisis Lanjutan: Kategorisasi CO"
     ]
 )
-data['date'] = pd.to_datetime(data[['year', 'month', 'day', 'hour']])
+
 # Main content
 st.title("Analisis Kualitas Udara di Beijing")
 st.write("""
@@ -31,6 +32,7 @@ st.write("""
     2. Bagaimana hubungan antar polutan serta pengaruh suhu, curah hujan, kecepatan angin, dan tekanan udara?
 """)
 
+data['date'] = pd.to_datetime(data[['year', 'month', 'day', 'hour']])
 if visualization_option == "Tren Polutan per Tahun":
     st.header("Tren Rata-rata Tahunan dari Berbagai Polutan")
     
@@ -114,6 +116,37 @@ elif visualization_option == "Korelasi Antar Polutan":
         plt.grid(True)
         st.pyplot(plt)
 
+elif visualization_option == "Total dan Rata-rata Polutan":
+    st.header("Total dan Rata-rata Polutan Berdasarkan Tahun dan Stasiun")
+    
+    polutan = st.selectbox("Pilih Polutan", ['PM2.5', 'PM10', 'SO2', 'NO2', 'CO', 'O3'])
+    
+    # Calculate total and mean pollutant per year and station
+    total_pollutant = data.groupby(['year', 'station'])[polutan].sum().reset_index()
+    mean_pollutant = data.groupby(['year', 'station'])[polutan].mean().reset_index()
+    
+    # Plot total pollutant
+    st.subheader(f"Total {polutan} per Tahun dan Stasiun")
+    plt.figure(figsize=(14, 8))
+    sns.barplot(x='year', y=polutan, hue='station', data=total_pollutant, palette='bright')
+    plt.title(f'Total {polutan} per Tahun dan Stasiun')
+    plt.xlabel('Tahun')
+    plt.ylabel(f'Total {polutan}')
+    plt.legend(title='Stasiun', bbox_to_anchor=(1.05, 1), loc='upper left')
+    plt.grid(True)
+    st.pyplot(plt)
+    
+    # Plot mean pollutant
+    st.subheader(f"Rata-rata {polutan} per Tahun dan Stasiun")
+    plt.figure(figsize=(14, 8))
+    sns.barplot(x='year', y=polutan, hue='station', data=mean_pollutant, palette='bright')
+    plt.title(f'Rata-rata {polutan} per Tahun dan Stasiun')
+    plt.xlabel('Tahun')
+    plt.ylabel(f'Rata-rata {polutan}')
+    plt.legend(title='Stasiun', bbox_to_anchor=(1.05, 1), loc='upper left')
+    plt.grid(True)
+    st.pyplot(plt)
+
 elif visualization_option == "Analisis Lanjutan: Kategorisasi CO":
     st.header("Analisis Lanjutan: Kategorisasi Kadar CO")
     
@@ -194,7 +227,6 @@ st.write("""
 st.sidebar.header("Informasi Tambahan")
 st.sidebar.write("""
     - **Dataset:** [Air Quality Dataset](https://github.com/daffaakifah/Analisis_Kualitas_Udara)
-    - **Sumber Data:** [PRSA Data](https://archive.ics.uci.edu/ml/datasets/Beijing+PM2.5+Data)
     - **Dibuat oleh:** Daffa Akifah Balqis
     - **Email:** daffaakifahbalqis01@gmail.com
     - **Dicoding Username:** daffabalqis
