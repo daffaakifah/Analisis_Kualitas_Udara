@@ -165,9 +165,9 @@ elif visualization_option == "Analisis Lanjutan: Kategorisasi CO":
     data['Kategori_CO'] = data['CO'].apply(kategorikan_co)
     
     # Summary table
-    kategori_co = data.groupby('station')['Kategori_CO'].unstack(fill_value=0)
+    kategori_co = data.groupby('station')['Kategori_CO'].value_counts().unstack(fill_value=0)
     
-    st.write("Tabel Kategori CO per Stasiun:")
+    st.write("Tabel Kategori ringkasan kejadian status polutan CO per Stasiun:")
     st.write(kategori_co)
 
 # Kesimpulan dan Saran
