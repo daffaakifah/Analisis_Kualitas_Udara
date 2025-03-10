@@ -23,7 +23,7 @@ visualization_option = st.sidebar.selectbox(
         "Analisis Lanjutan: Kategorisasi CO"
     ]
 )
-
+data['date'] = pd.to_datetime(data[['year', 'month', 'day', 'hour']])
 # Main content
 st.title("Analisis Kualitas Udara di Beijing")
 st.write("""
