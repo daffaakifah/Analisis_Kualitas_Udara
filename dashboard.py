@@ -11,7 +11,6 @@ def load_data():
 
 data = load_data()
 
-# Sidebar for user input
 st.sidebar.header("Pilihan Visualisasi")
 visualization_option = st.sidebar.selectbox(
     "Pilih Visualisasi",
@@ -24,7 +23,7 @@ visualization_option = st.sidebar.selectbox(
     ]
 )
 
-# Main content
+# Main dashboard
 st.title("Analisis Kualitas Udara di Beijing Tahun 2013-2017")
 st.write("""
     **Pertanyaan Bisnis:**
@@ -36,7 +35,6 @@ data['date'] = pd.to_datetime(data[['year', 'month', 'day', 'hour']])
 if visualization_option == "Tren Polutan per Tahun":
     st.header("Tren Rata-rata Tahunan dari Berbagai Polutan")
     
-    # Calculate annual means
     annual_pollutant_means = data.groupby(data['date'].dt.year)[['PM2.5', 'PM10', 'SO2', 'NO2', 'CO', 'O3']].mean()
     
     # Plot
@@ -125,7 +123,7 @@ elif visualization_option == "Total dan Rata-rata Polutan":
     total_pollutant = data.groupby(['year', 'station'])[polutan].sum().reset_index()
     mean_pollutant = data.groupby(['year', 'station'])[polutan].mean().reset_index()
     
-    # Plot total pollutant
+    # Plot total polutan
     st.subheader(f"Total {polutan} per Tahun dan Stasiun")
     plt.figure(figsize=(14, 8))
     sns.barplot(x='year', y=polutan, hue='station', data=total_pollutant, palette='bright')
@@ -136,7 +134,7 @@ elif visualization_option == "Total dan Rata-rata Polutan":
     plt.grid(True)
     st.pyplot(plt)
     
-    # Plot mean pollutant
+    # Plot mean polutan
     st.subheader(f"Rata-rata {polutan} per Tahun dan Stasiun")
     plt.figure(figsize=(14, 8))
     sns.barplot(x='year', y=polutan, hue='station', data=mean_pollutant, palette='bright')
@@ -146,29 +144,6 @@ elif visualization_option == "Total dan Rata-rata Polutan":
     plt.legend(title='Stasiun', bbox_to_anchor=(1.05, 1), loc='upper left')
     plt.grid(True)
     st.pyplot(plt)
-
-elif visualization_option == "Analisis Lanjutan: Kategorisasi CO":
-    st.header("Analisis Lanjutan: Kategorisasi Kadar CO")
-    
-    # Function to categorize CO levels
-    def kategorikan_co(co_value):
-        if co_value < 70:
-            return "Aman"
-        elif 70 >= co_value < 150:
-            return "Tinggi"
-        elif co_value >= 150:
-            return "Sangat tinggi"
-        else:
-            return "Tidak Diketahui"
-    
-    # Apply categorization
-    data['Kategori_CO'] = data['CO'].apply(kategorikan_co)
-    
-    # Summary table
-    kategori_co = data.groupby('station')['Kategori_CO'].value_counts().unstack(fill_value=0)
-    
-    st.write("Tabel Kategori ringkasan kejadian status polutan CO per Stasiun:")
-    st.write(kategori_co)
 
 # Kesimpulan dan Saran
 st.header("Kesimpulan dan Saran")
@@ -189,7 +164,7 @@ st.write("""
     - Stasiun yang terletak di pusat kota (seperti **Dongsi** dan **Wanshouxigong**) cenderung memiliki kadar polutan yang lebih tinggi dibandingkan stasiun di pinggiran kota (seperti **Dingling**).
 
     ### **Saran untuk Menanggulangi Polutan:**
-    1. **Pengurangan Emisi Kendaraan Bermotor**:
+    1. **Pengurangan Emisi Kendaraan**:
        - Meningkatkan penggunaan transportasi umum yang ramah lingkungan.
        - Menerapkan kebijakan pembatasan kendaraan pribadi di area dengan tingkat polusi tinggi.
 
