@@ -165,20 +165,10 @@ elif visualization_option == "Analisis Lanjutan: Kategorisasi CO":
     data['Kategori_CO'] = data['CO'].apply(kategorikan_co)
     
     # Summary table
-    ringkasan_kategori_co = data.groupby('station')['Kategori_CO'].value_counts().unstack(fill_value=0)
+    kategori_co = data.groupby('station')['Kategori_CO'].unstack(fill_value=0)
     
-    st.write("Tabel Ringkasan Kategori CO per Stasiun:")
-    st.write(ringkasan_kategori_co)
-    
-    # Plot
-    plt.figure(figsize=(14, 8))
-    ringkasan_kategori_co.plot(kind='bar', stacked=True)
-    plt.title('Distribusi Kategori CO per Stasiun')
-    plt.xlabel('Stasiun')
-    plt.ylabel('Jumlah')
-    plt.xticks(rotation=45, ha='right')
-    plt.tight_layout()
-    st.pyplot(plt)
+    st.write("Tabel Kategori CO per Stasiun:")
+    st.write(kategori_co)
 
 # Kesimpulan dan Saran
 st.header("Kesimpulan dan Saran")
