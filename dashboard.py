@@ -5,7 +5,6 @@ import seaborn as sns
 import numpy as np
 
 # Load data
-@st.cache
 def load_data():
     data = pd.read_csv('main-data.csv')
     return data
@@ -197,4 +196,6 @@ st.sidebar.write("""
     - **Dataset:** [Air Quality Dataset](https://github.com/daffaakifah/Analisis_Kualitas_Udara)
     - **Sumber Data:** [PRSA Data](https://archive.ics.uci.edu/ml/datasets/Beijing+PM2.5+Data)
     - **Dibuat oleh:** Daffa Akifah Balqis
+    - **Email:** daffaakifahbalqis01@gmail.com
+    - **Dicoding Username:** daffabalqis
 """)
