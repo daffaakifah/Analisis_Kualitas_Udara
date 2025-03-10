@@ -35,7 +35,7 @@ st.write("""
     1. Bagaimana tren rata-rata tahunan dari berbagai polutan (PM2.5, PM10, SO2, NO2, CO, O3) serta polutan apa yang paling tinggi secara keseluruhan dan persebaran di masing-masing stasiun?
     2. Bagaimana hubungan antar polutan serta pengaruh suhu, curah hujan, kecepatan angin, dan tekanan udara?
 """)
-
+data['date'] = pd.to_datetime(data[['year', 'month', 'day', 'hour']])
 if visualization_option == "Tren Polutan per Tahun":
     st.header("Tren Rata-rata Tahunan dari Berbagai Polutan")
     
