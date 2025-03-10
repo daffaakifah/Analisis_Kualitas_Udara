@@ -8,4 +8,4 @@ Proyek ini bertujuan untuk menganalisis kualitas udara di wilayah stasiun yang a
 - url.txt
 ## Cara Menjalankan <br>
 1. Pastikan semua dependensi library (ada di requirements.txt). <br>
-2. Jalankan streamlit run dashboard.py di terminal.
+2. Jalankan streamlit run dashboard/dashboard.py di terminal.
