@@ -18,8 +18,7 @@ visualization_option = st.sidebar.selectbox(
         "Tren Polutan per Tahun",
         "Distribusi Polutan per Stasiun",
         "Korelasi Antar Polutan",
-        "Total dan Rata-rata Polutan",
-        "Analisis Lanjutan: Kategorisasi CO"
+        "Total dan Rata-rata Polutan"
     ]
 )
 
