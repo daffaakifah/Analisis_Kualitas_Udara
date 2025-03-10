@@ -25,7 +25,7 @@ visualization_option = st.sidebar.selectbox(
 )
 
 # Main content
-st.title("Analisis Kualitas Udara di Beijing")
+st.title("Analisis Kualitas Udara di Beijing Tahun 2013-2017")
 st.write("""
     **Pertanyaan Bisnis:**
     1. Bagaimana tren rata-rata tahunan dari berbagai polutan (PM2.5, PM10, SO2, NO2, CO, O3) serta polutan apa yang paling tinggi secara keseluruhan dan persebaran di masing-masing stasiun?
@@ -221,6 +221,9 @@ st.write("""
     5. **Pemantauan dan Sistem Peringatan Dini**:
        - Memperkuat sistem pemantauan kualitas udara secara real-time.
        - Memberikan peringatan dini kepada masyarakat saat tingkat polusi mencapai level berbahaya.
+
+    Catatan:
+    Pada tahun 2017 data sampai pada bulan februari
 """)
 
 # Additional information
