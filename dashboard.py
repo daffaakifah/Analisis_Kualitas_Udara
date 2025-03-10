@@ -112,13 +112,12 @@ st.sidebar.write("""
     - **Sumber Data:** [PRSA Data](https://archive.ics.uci.edu/ml/datasets/Beijing+PM2.5+Data)
     - **Dibuat oleh:** Daffa Akifah Balqis
 """)
-    
-    # Kesimpulan
-    st.header("Kesimpulan")
-    st.write("""
-    - Kadar gas yang memiliki rata-rata tertinggi adalah gas CO.
-    - Kecepatan angin dan curah hujan mempengaruhi kadar CO. Apabila kecepatan angin dan curah hujan tinggi, maka dapat mengurangi konsentrasi kadar CO.
-    - Stasiun kerap kali memiliki kadar CO yang sangat tinggi yang dapat berbahaya bagi kesehatan, diperlukan tindakan lebih lanjut untuk menangani kadar konsentrasi CO yang tinggi.
+# Kesimpulan
+st.header("Kesimpulan")
+st.write("""
+- Kadar gas yang memiliki rata-rata tertinggi adalah gas CO.
+- Kecepatan angin dan curah hujan mempengaruhi kadar CO. Apabila kecepatan angin dan curah hujan tinggi, maka dapat mengurangi konsentrasi kadar CO.
+- Stasiun kerap kali memiliki kadar CO yang sangat tinggi yang dapat berbahaya bagi kesehatan, diperlukan tindakan lebih lanjut untuk menangani kadar konsentrasi CO yang tinggi.
     """)
 
 if __name__ == "__main__":
