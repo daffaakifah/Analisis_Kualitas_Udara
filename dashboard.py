@@ -184,9 +184,6 @@ st.write("""
        - **NO2** dan **CO** memiliki korelasi positif, yang mengindikasikan bahwa keduanya berasal dari emisi kendaraan bermotor.
        - **Temperatur (TEMP)** dan **Tekanan Udara (PRES)** memiliki korelasi negatif, yang berarti peningkatan suhu cenderung menurunkan tekanan udara.
 
-    3. **Analisis Lanjutan**:
-       - Kadar **CO** di beberapa stasiun seringkali berada dalam kategori **Sangat Tinggi**, yang dapat berbahaya bagi kesehatan.
-
     ### **Insight/Wawasan:**
     - Polusi udara di Beijing dipengaruhi oleh berbagai faktor, termasuk emisi kendaraan bermotor, industri, dan kondisi meteorologi seperti suhu, curah hujan, dan kecepatan angin.
     - Stasiun yang terletak di pusat kota (seperti **Dongsi** dan **Wanshouxigong**) cenderung memiliki kadar polutan yang lebih tinggi dibandingkan stasiun di pinggiran kota (seperti **Dingling**).
